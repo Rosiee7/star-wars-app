@@ -11,8 +11,8 @@ const MoviesItems = ({movies, onClick}:any) => {
           theme="dark"
           inlineCollapsed={false}
         >
-          {movies.map((movie, index)=>{
-            return <MovieItem key={movie.url} id={index} onClick={onClick} data={movie} />
+          {movies.map((movie)=>{
+            return <MovieItem key={movie.uid} id={movie.uid} onClick={onClick} data={movie} />
           })}
         </Menu>
       </div>

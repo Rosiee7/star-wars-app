@@ -6,29 +6,29 @@ import {
   HeartTwoTone
 } from '@ant-design/icons';
 
-const MoviesItem = ({data, id, onClick}:any) => {  
+const MoviesItem = ({data, onClick}:any) => {  
     const favMoviesStorageIds = localStorage.getItem('favouriteMovies')?.split(",") ?? [];
-    const isFavouriteByDefault = favMoviesStorageIds.includes(data.url);
+    const isFavouriteByDefault = favMoviesStorageIds.includes(data.uid);
     const [isFavourite, setIsFavourite] = useState(isFavouriteByDefault);
     
     const onFavClick = (movie: any)=>{
         if(isFavourite){
-            const newFav = favMoviesStorageIds.filter(x=> x !== movie.url);
+            const newFav = favMoviesStorageIds.filter(x=> x !== movie.uid);
             localStorage.setItem('favouriteMovies', newFav.join(","));            
         }else{
-            favMoviesStorageIds.push(movie.url);            
+            favMoviesStorageIds.push(movie.uid);            
             localStorage.setItem('favouriteMovies', favMoviesStorageIds.join(","));            
         }  
 
         setIsFavourite(!isFavourite);   
     }
-
+    
     return (
-        <Menu.Item eventKey={id} key={id} onClick={() => onClick(data)}
+        <Menu.Item eventKey={data.uid} key={data.uid} onClick={() => onClick(data)}
                 icon={(isFavourite ? 
                  <HeartTwoTone twoToneColor="#eb2f96" onClick={() => onFavClick(data)} /> :
                  <HeartOutlined onClick={() => onFavClick(data)} /> )}>
-            {data.title}
+            {data.properties.title}
         </Menu.Item>
     );
   }
