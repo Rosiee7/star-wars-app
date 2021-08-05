@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import mockData from './mock';
-import MoviesNav from './MoviesNav';
+import MoviesItems from './MoviesItems';
+import MovieDetails from './MovieDetails';
 
 function App() {
-  console.log(mockData.results);
+
+  const [currentMovie, setCurrentMovie] = useState();
+  const onMovieClick = (movie: any) =>{
+    setCurrentMovie(movie);
+  };
 
   return (
     <div className="App">
-      <MoviesNav movies={mockData.results} />
+      <MoviesItems movies={mockData.results} onClick={onMovieClick} />
+      <MovieDetails data={currentMovie} />
     </div>
   );
 }
