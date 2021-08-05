@@ -23,8 +23,12 @@ function App() {
   
 
   return <div className="App">
-          <MoviesItems movies={movies} onClick={onMovieClick} />
-          <MovieDetails data={currentMovie} />
+          <div className="Toc">
+            <MoviesItems movies={movies} onClick={onMovieClick} />
+          </div>
+          <div className="Details" >
+            <MovieDetails data={currentMovie} />
+          </div>            
         </div>
 }
 

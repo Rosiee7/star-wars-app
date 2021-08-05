@@ -1,5 +1,23 @@
 .App {
   text-align: center;
+  display:flex;
+  width:100%;
+}
+
+.Toc{
+  width: 30%;  
+  background: #001529;
+  height: 100vh;
+}
+
+.Details{
+  width: 70%;
+}
+
+.Details div{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
 }
 
 .App-logo {
