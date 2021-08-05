@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import 'antd/dist/antd.css';
 import { Menu } from 'antd';
 import {

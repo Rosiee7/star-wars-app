@@ -6,7 +6,6 @@ const MoviesItems = ({movies, onClick}:any) => {
     return (
       <div style={{ width: 256 }}>
         <Menu
-          defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
           inlineCollapsed={false}
